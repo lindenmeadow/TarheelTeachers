@@ -1,0 +1,118 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: url(paper.jpg);
+    background-repeat: repeat;
+}
+
+.navbar {
+    background-color: #002db3;
+}
+
+.brand-link {
+    background: url(state.png);
+    background-size: 120px 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+header {
+    min-height: 55vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(blackboard.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 90%;
+    background-repeat: no-repeat;
+    padding-top: 15vh;
+}
+
+header h1 {
+    height: 210px;
+    padding-top: 50px;
+    text-align: center;
+    color: white;
+    font-size: 5.5rem;
+    text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
+    background-image: url(state.png);
+    background-size: 500px 200px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.notice {
+    text-align: center;
+    color: #29a329;
+    font-size: 2em;
+}
+
+.headline {
+    color: red;
+    text-align: center;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 25px;
+    border-bottom: 5px solid black;
+}
+
+.badge {
+    height: 1.5rem;
+}
+
+.content {
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    padding: 25px;
+}
+
+.content-sm {
+    width: 40%;
+    background: white;
+    margin: auto;
+    padding: 20px;
+}
+
+.discussion {
+    border-top: 2px solid black;
+    padding-top: 10px;
+}
+
+.comment {
+    background-color: #f6f6ee;
+    padding: 10px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: #002db3;
+    padding: 3em;
+    color: white;
+    text-align: center;
+    margin-top: 2em;
+    width: 100%;
+}

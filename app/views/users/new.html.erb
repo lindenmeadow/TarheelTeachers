@@ -1,0 +1,28 @@
+<div class="content-sm">
+  <h1>Sign Up</h1>
+  <hr>
+  <%= simple_form_for User.new do |f| %>
+      
+      <%= f.input :username,
+                  required: true,
+                  autofocus: true,
+                  input_html: { class: "input" } %>
+      <%= f.input :email,
+                  required: true,
+                  input_html: { class: "input" } %>
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <%= f.input :password,
+                  required: true,
+                  hint: "7 characters minimum",
+                  input_html: { class: "input" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { class: "input" } %>
+      <%= f.input :bio, label:'Tell us about yourself. (optional)', input_html: { class: 'textarea' } %>
+      <%= f.input :quote, label: 'What is your favorite quote about education? (optional)', input_html: { class: 'textarea' } %>
+      <%= f.button :submit, "Sign Up", class:'btn btn-primary' %>
+
+  <% end %>
+  <br>
+  <h5>Or... <br> <%= link_to ' Sign up with Facebook.', '/auth/facebook', class:'btn btn-primary fab fa-facebook-square' %></h5>
+</div>

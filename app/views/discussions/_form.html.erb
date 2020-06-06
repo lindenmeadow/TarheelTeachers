@@ -1,0 +1,21 @@
+<%= simple_form_for(@discussion) do |f| %>
+    <%= f.input :title, required: true, input_html: { class: 'input' }, label_html: { class: "label" } %>
+
+    <%= f.input :content, required: true, input_html: { class: 'textarea' }, label_html: { class: "label" } %>
+        
+    <label class="label">Forum</label>
+        <div class="control has-icons-left">
+            <span class="select">
+                <%= f.input_field :forum_id, required: true, collection:@forums.map { |frm| [frm.forum_name, frm.id] }%>
+            </span>
+            <span class="icon is-small is-left">
+                <i class="fa fa-tag"></i>
+            </span>
+        </div>
+        <br>
+
+    <%= f.button :submit, class: "btn btn-primary" %>
+                    
+<% end %>
+
+

@@ -1,0 +1,30 @@
+<div class="content-sm">
+  <h2>All Discussions</h2>
+  <hr>
+  <div>
+    <% @discussions.each do |discussion| %>
+      <div>
+        <div>
+          <%= link_to discussion do %>
+            <h3><%= discussion.title %></h3>
+            
+          <% end %>
+          <div>
+            <p><em><small>Posted <%= discussion.created_at.strftime("%A, %B %e, %Y") %> in
+              <% if discussion.forum %>
+                <%= link_to discussion.forum.forum_name, discussion.forum %>
+              <% end %>
+              by <%= discussion.user.username %>
+              </small>
+              </em>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    <% end %>
+    <div class="d-flex flex-row justify-content-center p-3">
+        <%= will_paginate @discussions, class: 'p-3' %>
+    </div>
+  </div>
+</div>

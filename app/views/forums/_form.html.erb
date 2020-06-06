@@ -1,0 +1,6 @@
+<%= simple_form_for(@forum) do |f| %>
+    <%= f.input :forum_name, required: true, input_html: { class: 'input' }, label_html: { class: 'label' } %>
+
+    <%= f.button :submit, class: 'btn btn-primary' %>
+<% end %>
+  

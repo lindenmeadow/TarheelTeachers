@@ -1,0 +1,28 @@
+<div class="content-sm">
+    <h1><%= @user.username %>'s Profile</h1>
+    
+    <% if signed_in? && current_user.id === @user.id %>
+        <%= link_to " Edit Account", edit_user_path(@user), class:"btn btn-secondary far fa-edit" %> |
+    <% end %>
+    <% if signed_in? && current_user.id === @user.id || has_role?(:admin) %>
+    <%= link_to ' Delete Account', @user, method: :delete, class:'btn btn-danger far fa-trash-alt', data: { confirm: "Are you sure you want to delete this account?" } %>
+    <% end %>
+    <hr>
+    <h4><strong>Username: </strong> <%= @user.username %></h4>
+    <h4><strong>Bio:</strong> <%=@user.bio %></h4>
+    <h4><strong>Favorite Quote:</strong> <%=@user.quote %></h4>
+
+    <h2>Discussions:</h2>
+    <% if @user.discussions.empty? %>
+    <p>No discussions created yet.</p>
+    <% else %>
+        <p><%= @user.discussions.count %> discussions created.</p>
+        <% @user.discussions.order('created_at desc').each do |discussion| %>
+            <%= link_to discussion do %>
+                <h3><%= discussion.title %></h3>
+            <% end %>
+            <p>Posted on <%= discussion.created_at.strftime("%A, %B %e, %Y") %> in <%= link_to discussion.forum.forum_name, discussion.forum %></p>
+        <% end %>
+    <% end %>
+
+</div>

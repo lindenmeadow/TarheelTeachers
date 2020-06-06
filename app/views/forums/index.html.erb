@@ -1,0 +1,21 @@
+<div class="content-sm">
+  
+  <% if has_role?(:admin) %>
+    <h1>Forums</h1>
+    <%= link_to 'Create New Forum', new_forum_path, class:'btn btn-dark' %>
+    <br><hr>
+    <% @forums.each do |forum| %>
+          <h4><%= forum.forum_name %></h4>
+          <div>
+            <%= link_to 'Show', forum %> | 
+            <%= link_to ' Edit', edit_forum_path(forum), class:'btn btn-secondary far fa-edit' %> |
+            <%= link_to ' Delete', forum, method: :delete, class:'btn btn-danger far fa-trash-alt', data: { confirm: "Are you sure you want to delete this forum? " } %>
+          </div>
+          <br>
+      <% end %>
+
+  <% else %>
+      <p>You are not authorized to view this page.</p>
+  <% end %>
+
+</div>

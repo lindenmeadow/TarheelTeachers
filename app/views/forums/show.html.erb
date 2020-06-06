@@ -1,0 +1,28 @@
+<div class="content-sm">
+  <h2>
+    <strong>Forum:</strong>
+    <%= @forum.forum_name %>
+  </h2>
+  <% if has_role?(:admin) %>
+    <%= link_to "Forums List", forums_path, class: 'btn btn-secondary' %>
+  <% end %>
+  <hr>
+  <div>
+      <% if @forum.discussions.empty? %>
+        <p>This forum has no discussions.</p>
+      <% else %>
+          <p>This forum has <%= @forum.discussions.count %> discussions.</p>
+          <% @forum.discussions.order('created_at desc').each do |discussion| %>
+            <div>
+              <%= link_to discussion do %>
+                  <h3><%= discussion.title %></h3>
+              <% end %>
+              <p>Posted on <%= discussion.created_at.strftime("%A, %B %e, %Y") %> by <%= discussion.user.username %></p>
+            </div>
+              
+          <% end %>
+          
+      <% end %>
+      
+  </div>
+</div>

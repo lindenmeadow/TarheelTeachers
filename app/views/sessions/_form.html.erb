@@ -1,0 +1,15 @@
+<%= simple_form_for(user, url: signin_path) do |f| %>
+    <%= f.input :username,
+                required: true,
+                autofocus: true,
+                input_html: { class: "input" } %>
+    <%= f.input :email,
+                required: true,
+                input_html: { class: "input" } %>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <br>
+    <%= f.input :password,
+                required: true,
+                input_html: { class: "input" } %>
+    <%= f.button :submit, "Sign In", class:'btn btn-primary' %>
+<% end %>

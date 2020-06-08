@@ -30,6 +30,7 @@ gem 'omniauth', '~> 1.9', '>= 1.9.1'
 gem 'omniauth-facebook', '~> 6.0'
 gem 'will_paginate', '~> 3.3'
 gem 'jquery-rails', '~> 4.4'
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

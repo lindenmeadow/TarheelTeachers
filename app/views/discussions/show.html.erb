@@ -36,7 +36,7 @@
             <p><%= comment.content %></p>
               <% if comment_author(comment) || has_role?(:admin) || has_role?(:moderator) %>
                 <%= link_to " Edit", edit_comment_path(comment), class: 'btn btn-secondary far fa-edit' %> |
-                <%= link_to " Delete", [comment], method: :delete, data: {confirm: "Are you sure?" }, class: 'btn btn-danger far fa-trash-alt' %>
+                <%= link_to " Delete", [comment], method: :delete, data: {confirm: "Delete comment?" }, class: 'btn btn-danger far fa-trash-alt' %>
               <% end %>
           </div>
         <% end %>   

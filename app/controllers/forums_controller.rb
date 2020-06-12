@@ -6,7 +6,6 @@ class ForumsController < ApplicationController
   end
 
   def show
-    @discussions = Discussion.where('forum_id = ?', @forum.id)
   end
 
   def new

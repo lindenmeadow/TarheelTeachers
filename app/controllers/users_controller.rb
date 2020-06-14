@@ -26,7 +26,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             redirect_to @user, flash:{notice: "Account info updated."}
         else
-            redirect_to edit_user_path, flash:{notice: "Please complete all required fields. Make sure password fields match."}
+            redirect_to edit_user_path, flash:{notice: "Please complete all required fields. Be sure password fields match."}
         end
     end
 

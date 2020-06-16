@@ -3,7 +3,7 @@
 
     <%= f.input :content, required: true, input_html: { class: 'textarea' }, label_html: { class: "label" } %>
         
-    <label class="label">Forum</label>
+    <label class="label">Forum <i class="far fa-comments"></i></label>
         <div class="control has-icons-left">
             <span class="select">
                 <%= f.input_field :forum_id, required: true, collection:@forums.map { |frm| [frm.forum_name, frm.id] }%>

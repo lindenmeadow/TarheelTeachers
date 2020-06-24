@@ -9,36 +9,15 @@
     <% if discussion_author(@discussion) || has_role?(:admin) || has_role?(:moderator) %>
         <div>
           <%= link_to " Edit", edit_discussion_path(@discussion), class: 'btn btn-secondary far fa-edit' %> |
-          <%= link_to " Delete", discussion_path(@discussion), method: :delete, data: { confirm: "Delete discussion?" }, class: 'btn btn-danger far fa-trash-alt' %>
+          <%= link_to " Delete", discussion_path(@discussion), method: :delete, data: { confirm: "Are you sure you want to delete this discussion?" }, class: 'btn btn-danger far fa-trash-alt' %>
         </div>
     <% end %>
     <br>
     
     <hr>
 
-    <% if signed_in? %>
-      <%= render 'comments/form' %>
-    <% else %>
-      <p>You need to <%= link_to 'sign in', signin_path %> to leave a comment. Don't have an account?
-      <%= link_to 'Sign up', signup_path %> for one.</p>
-    <% end %>
-
     <hr>
 
-    <h5><%= @discussion.comments.count %> Comments</h5>
-    
-      <% @discussion.comments.each do |comment|%>
-        <% if @discussion.comments.count === 0 %>
-          <p>Be the first to post a comment!</p>
-        <% elsif comment.content != nil %>
-          <div class="comment">
-            <p>By <%= link_to comment.user.username, comment.user %> on <%= comment.created_at.strftime("%A, %B %e, %Y") %></p>
-            <p><%= comment.content %></p>
-              <% if comment_author(comment) || has_role?(:admin) || has_role?(:moderator) %>
-                <%= link_to " Edit", edit_comment_path(comment), class: 'btn btn-secondary far fa-edit' %> |
-                <%= link_to " Delete", [comment], method: :delete, data: {confirm: "Delete comment?" }, class: 'btn btn-danger far fa-trash-alt' %>
-              <% end %>
-          </div>
-        <% end %>   
-      <% end %>  
+    <h5>This discussion has <%= @discussion.comments.count %> <%= link_to "comments", discussion_comments_path(@discussion) %></h5>
+   
 </div>

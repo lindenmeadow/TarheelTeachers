@@ -2,13 +2,11 @@
 
 <% if comment_author(@comment) || has_role?(:admin) || has_role?(:moderator) %>
 
-  <h1>Edit Comment</h1>
-  <%= link_to "Back", discussion_comments_path(@comment.discussion) %>
-  <hr>
-
   <%= simple_form_for @comment do |f| %>
-    <div>
-      <%= f.input :content, input_html: { class: 'textarea' }, label_html: { class: 'label' } %>
+    <h1>Edit Comment</h1>
+    <%= link_to "Back", discussion_comments_path(@comment.discussion) %>
+    <hr>
+    <%= f.input :content, input_html: { class: 'textarea' }, label_html: { class: 'label' } %>
     <%= f.button :submit, 'Update Comment', class:'btn btn-primary' %> 
   <% end %>
 

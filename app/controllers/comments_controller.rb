@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+  
+  def index 
+    @discussion = Discussion.find(params[:discussion_id])
+    @comments = @discussion.comments
+  end
 
   def create
     @comment = current_user.comments.build(comment_params)
@@ -7,9 +12,9 @@ class CommentsController < ApplicationController
     
     if @comment.valid?
       @comment.save
-      redirect_to discussion_path(@comment.discussion_id), flash:{notice: "Comment created!"}
+      redirect_to discussion_comments_path(@comment.discussion_id), flash:{notice: "Comment created!"}
     else
-      redirect_to discussion_path(@comment.discussion_id), flash:{notice: "Content field empty cannot be empty."}
+      redirect_to discussion_comments_path(@comment.discussion_id), flash:{notice: "Content field empty cannot be empty."}
     end
   end
 
@@ -24,7 +29,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      redirect_to discussion_path(@comment.discussion_id), flash:{notice: "Comment updated."}
+      redirect_to discussion_comments_path(@comment.discussion_id), flash:{notice: "Comment updated."}
     else
       redirect_to edit_comment_path, flash:{notice: "Content field cannot be empty."}
     end
@@ -33,7 +38,7 @@ class CommentsController < ApplicationController
   def destroy
      @comment = Comment.find(params[:id])
      @comment.destroy
-     redirect_to discussion_path(@comment.discussion_id), flash:{notice: "Comment deleted."}
+     redirect_to discussion_comments_path(@comment.discussion_id), flash:{notice: "Comment deleted."}
     
   end
 

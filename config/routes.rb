@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :users, :forums, :comments, :discussions
+  
+  resources :discussions, only: [:show] do
+    resources :comments, only: [:index, :new]
+  end
  
   root to: "home#index"
 

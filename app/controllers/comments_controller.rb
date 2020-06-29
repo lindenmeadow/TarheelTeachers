@@ -28,7 +28,8 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    if @comment.update(comment_params)
+    if @comment.valid? 
+      @comment.update(comment_params)
       redirect_to discussion_comments_path(@comment.discussion_id), flash:{notice: "Comment updated."}
     else
       redirect_to edit_comment_path, flash:{notice: "Content field cannot be empty."}

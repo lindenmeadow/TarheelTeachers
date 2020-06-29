@@ -1,6 +1,5 @@
 class DiscussionsController < ApplicationController
   before_action :set_discussion, only: [:show, :edit, :update, :destroy]
-  before_action :find_forums, only: [:index, :show, :new, :edit]
 
   def index
     @discussions = Discussion.order('created_at desc').paginate(:page => params[:page], :per_page => 15)
@@ -44,10 +43,6 @@ class DiscussionsController < ApplicationController
 
   def set_discussion
     @discussion = Discussion.find(params[:id])
-  end
-
-  def find_forums
-    @forums = Forum.all.order('created_at desc')
   end
 
   def discussion_params

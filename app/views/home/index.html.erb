@@ -10,7 +10,7 @@
                     <br>
                     <h2 class="card-header">Forums</h2>
                     <ul class="list-group">
-                        <% @forums.order(:forum_name).each do |forum| %>   
+                        <% @forums.alpha.each do |forum| %>   
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                             <h5><%= link_to forum.forum_name, forum %></h5>
                             <span class="badge badge-pill"><%= forum.discussions.count %></span>

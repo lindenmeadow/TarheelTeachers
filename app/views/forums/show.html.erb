@@ -12,7 +12,7 @@
         <p>This forum has no discussions.</p>
       <% else %>
           <p>This forum has <%= @forum.discussions.count %> discussions.</p>
-          <% @forum.discussions.order('created_at desc').each do |discussion| %>
+          <% @forum.discussions.recent.each do |discussion| %>
             <div>
               <%= link_to discussion do %>
                   <h3><%= discussion.title %></h3>

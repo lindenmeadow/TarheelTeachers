@@ -3,7 +3,7 @@ class DiscussionsController < ApplicationController
   before_action :find_forums, only: [:index, :show, :new, :edit]
 
   def index
-    @discussions = Discussion.order('created_at desc').paginate(:page => params[:page], :per_page => 15)
+    @discussions = Discussion.recent.paginate(:page => params[:page], :per_page => 15)
   end
 
   def show

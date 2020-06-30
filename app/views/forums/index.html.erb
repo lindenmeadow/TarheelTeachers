@@ -4,7 +4,7 @@
     <h1>Forums</h1>
     <%= link_to 'Create New Forum', new_forum_path, class:'btn btn-dark' %>
     <br><hr>
-    <% @forums.each do |forum| %>
+    <% @forums.alpha.each do |forum| %>
           <h4><%= forum.forum_name %></h4>
           <div>
             <%= link_to 'Show', forum %> | 

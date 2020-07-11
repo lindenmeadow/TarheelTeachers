@@ -17,7 +17,7 @@
     <p>No discussions created yet.</p>
     <% else %>
         <p><%= @user.discussions.count %> discussions created.</p>
-        <% @user.discussions.order('created_at desc').each do |discussion| %>
+        <% @user.discussions.recent.each do |discussion| %>
             <%= link_to discussion do %>
                 <h3><%= discussion.title %></h3>
             <% end %>
